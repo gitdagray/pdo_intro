@@ -11,5 +11,5 @@
         $error_message = 'Database Error: ';
         $error_message .= $e->getMessage();
         echo $error_message;
-        exit();
+        exit('Unable to connect to the database');
     }
