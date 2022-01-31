@@ -10,7 +10,7 @@
         $statement->bindValue(':city', $city . "%");
         $statement->execute();
         //$statement->debugDumpParams();
-        $results = $statement->fetchAll();
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         $statement->closeCursor();
     }
     
