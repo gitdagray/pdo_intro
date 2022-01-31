@@ -5,7 +5,8 @@
     //$password = 'pa55word';
 
     try {
-        $db = new PDO("mysql:host={$host};dbname={$db_name}", $username);
+        $db = new PDO("mysql:host={$host};dbname={$db_name}", $username); //, $password
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         $error_message = 'Database Error: ';
         $error_message .= $e->getMessage();
