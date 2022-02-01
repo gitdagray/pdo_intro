@@ -7,7 +7,7 @@
         $query = 'SELECT * FROM city WHERE Name LIKE :city ORDER BY Population DESC';
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':city', $city . "%");
+        $statement->bindValue(':city', "%" . $city . "%");
         $statement->execute();
         //$statement->debugDumpParams();
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
