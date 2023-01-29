@@ -17,6 +17,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@
     <title>PDO Tutorial</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>Search Cities</h1>
@@ -31,19 +33,22 @@
     <section>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="GET">
             <h2 id="enter-a-city">Enter a City:</h2>
-            <input type="text" id="city" name="city" aria-labelledby="enter-a-city" required>
+            <input type="text" id="city" name="city" aria-labelledby="enter-a-city" autofocus required>
             <button>Submit</button>
         </form>
     </section>
     <section>
-    <?php if (!empty($results)) { ?>
-        <h2><?php echo count($results) ?> Results</h2>
-        <?php foreach ($results as $result) {
-            echo "<p>{$result['Name']} - Pop: {$result['Population']}</p>";
-        } ?>
-    <?php } else {
-        echo "<p>No Results.</p>";
-    } ?>
+        <?php
+            if (!empty($results)) {
+                echo "<h2>" . count($results) . " Results</h2>";
+                foreach ($results as $result) {
+                    echo "<p>{$result['Name']} - Pop: {$result['Population']}</p>";
+                }
+            } else {
+                echo "<p>No Results.</p>";
+            }
+        ?>
     </section>
 </body>
+
 </html>
